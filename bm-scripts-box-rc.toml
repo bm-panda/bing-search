@@ -1,0 +1,22 @@
+[bmscriptsbox]
+
+[bmscriptsbox.info]
+id = "e6ed4ea5-1a9a-41d5-80ec-cb254b38e7ed"
+icon="logo.png"
+name = "必应搜索"
+desc = "选中文本后快速在必应搜索引擎中搜索，支持中文关键词自动编码"
+version = "1.0.2"
+
+[bmscriptsbox.runtime]
+language = "powershell"
+language_version = ">=5.1"
+entry = "main.ps1"
+terminal = "never"
+
+[bmscriptsbox.triggers.quick_copy]
+enabled = true
+
+[[bmscriptsbox.inputs]]
+name = "target_text"
+type = "str"
+description = "搜索关键词"
