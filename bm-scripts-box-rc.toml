@@ -2,10 +2,10 @@
 
 [bmscriptsbox.info]
 id = "e6ed4ea5-1a9a-41d5-80ec-cb254b38e7ed"
-icon="logo.png"
 name = "必应搜索"
-desc = "选中文本后快速在必应搜索引擎中搜索，支持中文关键词自动编码"
-version = "1.1.0"
+desc = "必应搜索 | 选中文字双击 Ctrl+C 或在盒子搜索框输入关键词，自动用默认浏览器打开必应搜索结果页，中文与特殊符号自动编码"
+version = "1.3.0"
+icon = "./imgs/logo.png"
 
 [bmscriptsbox.runtime]
 language = "powershell"
@@ -15,6 +15,15 @@ terminal = "never"
 
 [bmscriptsbox.triggers.quick_copy]
 enabled = true
+
+[bmscriptsbox.triggers.search]
+enabled = true
+
+[[bmscriptsbox.triggers.search.match]]
+kind = "text"
+min_length = 1
+max_length = 500
+weight = 5
 
 [[bmscriptsbox.inputs]]
 name = "target_text"

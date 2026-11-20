@@ -39,7 +39,7 @@ $keyword = $keyword.Trim()
 
 if ([string]::IsNullOrWhiteSpace($keyword)) {
     if ($env -and $env.api_base) {
-        Send-Bubble -ApiBase $env.api_base -NotifyType "info" -Message "请先复制文本，再双击 Ctrl+C 快速搜索必应" -Duration 3000
+        Send-Bubble -ApiBase $env.api_base -NotifyType "info" -Message "在盒子搜索框输入关键词，或选中文本双击 Ctrl+C" -Duration 3000
     }
     Write-Output (@{ status = "info"; message = "搜索关键词为空" } | ConvertTo-Json -Compress)
     exit 0
