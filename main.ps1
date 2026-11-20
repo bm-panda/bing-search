@@ -38,15 +38,10 @@ if ($data.target_text) {
 $keyword = $keyword.Trim()
 
 if ([string]::IsNullOrWhiteSpace($keyword)) {
-    if ($env -and $env.api_base) {
-        Send-Bubble -ApiBase $env.api_base -NotifyType "info" -Message "在盒子搜索框输入关键词，或选中文本双击 Ctrl+C" -Duration 3000
-    }
-    Write-Output (@{ status = "info"; message = "搜索关键词为空" } | ConvertTo-Json -Compress)
-    exit 0
+    $url = "https://cn.bing.com/"
+} else {
+    $url = "https://cn.bing.com/search?q=$([uri]::EscapeDataString($keyword))"
 }
-
-$encodedKeyword = [uri]::EscapeDataString($keyword)
-$url = "https://cn.bing.com/search?q=$encodedKeyword"
 
 if (-not [uri]::TryCreate($url, [System.UriKind]::Absolute, [ref]$null)) {
     if ($env -and $env.api_base) {
